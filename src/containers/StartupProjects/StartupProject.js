@@ -3,6 +3,9 @@ import "./StartupProjects.scss";
 import {bigProjects} from "../../portfolio";
 import {Fade} from "react-reveal";
 import StyleContext from "../../contexts/StyleContext";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export default function StartupProject() {
   function openUrlInNewTab(url) {
@@ -14,6 +17,23 @@ export default function StartupProject() {
   }
 
   const {isDark} = useContext(StyleContext);
+  const sliderSettings = {
+    dots: true,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 2,
+    slidesToScroll: 2,
+    arrows: true,
+    responsive: [
+      {
+        breakpoint: 900,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
   if (!bigProjects.display) {
     return null;
   }
@@ -32,7 +52,7 @@ export default function StartupProject() {
             {bigProjects.subtitle}
           </p>
 
-          <div className="projects-container">
+          <Slider {...sliderSettings} className="projects-slider">
             {bigProjects.projects.map((project, i) => {
               return (
                 <div
@@ -43,15 +63,21 @@ export default function StartupProject() {
                       : "project-card project-card-light"
                   }
                 >
-                  {project.image ? (
-                    <div className="project-image">
-                      <img
-                        src={project.image}
-                        alt={project.projectName}
-                        className="card-image"
-                      ></img>
+                  {project.images && project.images.length > 0 && (
+                    <div
+                      className="project-image multi-image"
+                      style={{display: "flex", gap: "8px"}}
+                    >
+                      {project.images.map((imgSrc, idx) => (
+                        <img
+                          key={idx}
+                          src={imgSrc}
+                          alt={`${project.projectName} screenshot ${idx + 1}`}
+                          className="card-image"
+                        />
+                      ))}
                     </div>
-                  ) : null}
+                  )}
                   <div className="project-detail">
                     <h5
                       className={isDark ? "dark-mode card-title" : "card-title"}
@@ -86,9 +112,10 @@ export default function StartupProject() {
                 </div>
               );
             })}
-          </div>
+          </Slider>
         </div>
       </div>
     </Fade>
   );
 }
+
