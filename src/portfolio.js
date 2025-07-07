@@ -99,19 +99,22 @@ const educationInfo = {
 // Your top 3 proficient stacks/tech experience
 
 const techStack = {
-  viewSkillBars: true, //Set it to true to show Proficiency Section
+  viewSkillBars: true, // Burası true kalsın ki başlık ve stack isimleri gözüksün
   experience: [
     {
-      Stack: "Game Development",
-      progressPercentage: "90%"
+      Stack: "Game Development"
     },
     {
-      Stack: "Programming (C#)",
-      progressPercentage: "80%"
+      Stack: "Programming (C#)"
     },
     {
-      Stack: "Level Design & Tools",
-      progressPercentage: "70%"
+      Stack: "Git & Version Control"
+    },
+    {
+      Stack: "Mobile Game Optimization"
+    },
+    {
+      Stack: "Gameplay Feel & Polish"
     }
   ],
   displayCodersrank: false // Set true to display codersrank badges section need to changes your username in src/containers/skillProgress/skillProgress.js:17:62, defaults to false
