@@ -177,18 +177,22 @@ const bigProjects = {
         url: "https://play.google.com/store/apps/details?id=com.hooligan.savemoney"
       }
     ]
+    },
+    {
+      images: [
+      require("./assets/images/mergebrawlers.webp"),
+      require("./assets/images/mergebrawlers1.webp"),
+      require("./assets/images/mergebrawlers2.webp")
+    ],
+    projectName: "Merge Brawlers",
+    projectDesc: "Merge fighters and outsmart rival gangs with strategic card plays.",
+    footerLink: [
+      {
+        name: "Download on Play Store",
+        url: "https://play.google.com/store/apps/details?id=com.hooligan.mergebrawlers"
+      }
+    ]
     }
-    /*{
-      image: require("./assets/images/nextuLogo.webp"),
-      projectName: "Nextu",
-      projectDesc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-      footerLink: [
-        {
-          name: "Visit Website",
-          url: "http://nextu.se/"
-        }
-      ]
-    }*/
   ],
   display: true // Set false to hide this section, defaults to true
 };
