@@ -84,6 +84,18 @@
   transition: 0.2s ease-in;
 }
 
+.projects-slider .project-card {
+  margin: 0 12px;
+}
+.projects-slider .slick-slide > div {
+  display: flex;
+  height: 100%;
+}
+.projects-slider .slick-slide {
+  padding: 0 12px;
+  box-sizing: border-box;
+}
+
 @media (max-width: 768px) {
   .project-subtitle {
     font-size: 16px;
@@ -92,27 +104,37 @@
 }
 
 @media (max-width: 900px) {
+  .projects-slider .slick-slide {
+    padding: 0 4vw;
+  }
+  .project-card {
+    min-width: 88vw;
+    max-width: 92vw;
+    margin: 0 auto;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
   .project-image {
-    height: auto;
     flex-wrap: nowrap;
-    gap: 8px;
+    overflow-x: auto;
+    max-width: 100%;
     justify-content: flex-start;
     align-items: center;
-    overflow-x: auto;
-    max-width: 100vw;
+    gap: 8px;
     padding-bottom: 8px;
+    overflow-y: hidden;
+    /* Kart dışına taşmayı engelle */
+    scrollbar-width: thin;
   }
   .card-image {
-    width: 48vw;
-    max-width: 180px;
-    min-width: 120px;
+    width: 80vw;
+    max-width: 220px;
+    min-width: 100px;
     height: auto;
-    margin: 0 auto;
+    margin: 0;
     display: block;
-  }
-  .project-detail {
-    text-align: center;
-    padding: 0 8px;
-    word-break: break-word;
+    flex-shrink: 0;
+    /* Kart dışına taşmayı engelle */
+    object-fit: contain;
   }
 }
